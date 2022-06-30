@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <!-- navbar -->
+  <!-- navbar start -->
   <nav class="navbar">
     <div class="nav-center">
       <!-- links -->
@@ -50,8 +50,9 @@
       </div>
     </div>
   </nav>
+  <!-- navbar end -->
 
-  <!-- hero -->
+  <!-- hero start -->
   <section class="hero">
     <div class="hero-container">
       <h1 class="text-slanted">
@@ -63,8 +64,9 @@
       </a>
     </div>
   </section>
+  <!-- hero end -->
 
-  <!-- sidebar -->
+  <!-- sidebar start -->
   <div class="sidebar-overlay">
     <aside class="sidebar">
       <!-- close -->
@@ -94,6 +96,31 @@
       </ul>
     </aside>
   </div>
+  <!-- sidebar end -->
+
+  <!-- cart start -->
+  <div class="cart-overlay">
+    <aside class="cart">
+      <button class="cart-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <header>
+        <h3 class="text-slanted">your bag</h3>
+      </header>
+      <!-- cart items -->
+      <div class="cart-items">
+        <!-- products will redender here when user select products -->
+      </div>
+      <!-- footer -->
+      <footer>
+        <h3 class="cart-total text-slanted">
+          total : 120.25 Birr
+        </h3>
+        <button class="cart-checkout btn">checkout</button>
+      </footer>
+    </aside>
+  </div>
+  <!-- cart end -->
 
   <script type="module" src="index.js"></script>
 </body>
