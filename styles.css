@@ -291,7 +291,7 @@ Hero
     min-height: 100vh;
     margin-top: -6rem;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(./images/main-bcg-2.jpg) center/cover;
+        url(./images/coffeBG.webp) center/cover;
     display: grid;
     place-items: center;
     color: var(--clr-white);
