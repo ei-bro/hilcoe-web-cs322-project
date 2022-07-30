@@ -17,6 +17,7 @@ const loading = getElement(".page-loading");
 
 display(store, getElement(".products-container"));
 setupSearch(store);
+setupCompanies(store);
 setTimeout(() => {
     loading.style.display = "none";
 }, 100);
