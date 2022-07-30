@@ -179,11 +179,16 @@ Navbar
 */
 
 .navbar {
+    position: sticky;
+    top: 0;
     height: 6rem;
     background: transparent;
+    background-color: var(--clr-black);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99;
+    opacity: 0.75;
 }
 
 .nav-center {
@@ -224,11 +229,16 @@ Navbar
     color: var(--clr-white);
     cursor: pointer;
 }
+.toggle-cart:hover {
+    font-size: 1.85rem;
+    transform: rotate(180deg);
+    transition: var(--transition);
+}
 .cart-item-count {
     position: absolute;
     top: -0.85rem;
     right: -0.85rem;
-    background: var(--clr-primary-5);
+    background: var(--clr-primary-1);
     width: 1.75rem;
     height: 1.75rem;
     display: grid;
@@ -261,10 +271,11 @@ Navbar
         margin-right: 3rem;
         letter-spacing: var(--spacing);
         transition: var(--transition);
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
     .nav-link:hover {
-        color: var(--clr-primary-5);
+        color: var(--clr-primary-7);
+        font-size: 1.4rem;
     }
 }
 @media screen and (min-width: 992px) {
@@ -420,8 +431,8 @@ Cart
     z-index: -1;
 }
 .cart-overlay.show {
-    opacity: 1;
-    z-index: 100;
+    opacity: 0.9;
+    z-index: 1000;
 }
 .cart {
     position: fixed;
@@ -442,7 +453,7 @@ Cart
     transform: translateX(0);
 }
 .cart-close {
-    font-size: 2rem;
+    font-size: 1.6rem;
     background: transparent;
     border-color: transparent;
     color: var(--clr-grey-5);
@@ -450,6 +461,11 @@ Cart
     top: 0.5rem;
     left: 1rem;
     cursor: pointer;
+}
+.cart-close:hover {
+    color: var(--clr-black);
+    transition: var(--transition);
+    transform: rotate(90deg);
 }
 .cart header {
     text-align: center;
@@ -642,7 +658,7 @@ Products Page
 }
 .filters-container {
     position: sticky;
-    top: 1rem;
+    top: 15rem;
 }
 .filters h4 {
     font-weight: 500;
@@ -711,10 +727,10 @@ Products Page
 .filter-error {
     position: absolute;
     top: 5rem;
-    left: 0;
+    left: 2.5rem;
     width: 100%;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 /*
 =============== 
@@ -727,6 +743,7 @@ Single Product Page
     place-items: center;
     background: var(--clr-grey-10);
     color: var(--clr-grey-5);
+    z-index: 5;
 }
 .page-hero-title {
     font-weight: 500;
