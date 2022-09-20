@@ -539,6 +539,15 @@ Cart
 	color: var(--clr-grey-5);
 	letter-spacing: var(--spacing);
 	cursor: pointer;
+	/* transition: var(--transition); */
+}
+.cart-item-remove-btn:hover {
+	padding: 0 4px;
+	color: #fff;
+	background-color: var(--clr-red-light);
+	border-radius: 4px;
+	/* font-size: 14.5px; */
+	/* font-weight: 600; */
 }
 .cart-item-amount {
 	margin-bottom: 0;
@@ -554,6 +563,13 @@ Cart
 	cursor: pointer;
 	font-size: 0.85rem;
 	padding: 0.25rem;
+}
+.cart-item-increase-btn:hover,
+.cart-item-decrease-btn:hover {
+	/* padding: 3px 0; */
+	color: #fff;
+	background-color: var(--clr-red-light);
+	border-radius: 5px;
 }
 /*
 =============== 
