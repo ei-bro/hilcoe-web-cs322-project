@@ -9,11 +9,10 @@ const display = (products, element) => {
 			return ` <article class="product">
           <div class="product-container">
             <img src="${image}" class="product-img img" alt="${name}" />
-
             <div class="product-icons">
-              <a href="product.html?id=${id}" class="product-icon">
-                <i class="fas fa-search"></i>
-              </a>
+				<a href=${image} target="_blank" class="product-icon">
+					<i class="fas fa-search"></i>
+				</a>;
               <button class="product-cart-btn product-icon" data-id="${id}">
                 <i class="fas fa-shopping-cart"></i>
               </button>
@@ -34,3 +33,7 @@ const display = (products, element) => {
 	});
 };
 export default display;
+
+//  <a href="product.php?id=${id}" class="product-icon">
+// 		<i class="fas fa-search"></i>
+//  </a>;

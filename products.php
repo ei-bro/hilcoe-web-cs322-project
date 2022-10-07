@@ -1,15 +1,25 @@
+<?php
+session_start();
+
+include("connection.php");
+include("./functions/functions.php");
+
+$user_data = check_login($con);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Single Product</title>
+  <title>All Products</title>
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
   <!-- styles css -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./public/styles.css" />
 </head>
 
 <body>
@@ -22,13 +32,16 @@
           <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-links">
+          <li class="nav-link">
+            <h3><?php echo $user_data["username"]; ?></h3>
+          </li>
           <li>
-            <a href="index.html" class="nav-link">
+            <a href="index.php" class="nav-link">
               Home
             </a>
           </li>
           <li>
-            <a href="products.html" class="nav-link">
+            <a href="products.php" class="nav-link">
               Products
             </a>
           </li>
@@ -38,13 +51,8 @@
             </a>
           </li>
           <li>
-            <a href="login.html" class="nav-link">
-              Login
-            </a>
-          </li>
-          <li>
-            <a href="register.html" class="nav-link">
-              Register
+            <a href="./logout.php" class="nav-link">
+              logout
             </a>
           </li>
         </ul>
@@ -61,15 +69,13 @@
     </div>
   </nav>
   <!-- navbar end -->
-
   <!-- hero -->
   <section class="page-hero">
     <div class="section-center">
-      <h3 class="page-hero-title">Home / Single Product</h3>
+      <h3 class="page-hero-title">Home / Products</h3>
     </div>
   </section>
-
-  <!-- sidebar start -->
+  <!-- sidebar -->
   <div class="sidebar-overlay">
     <aside class="sidebar">
       <!-- close -->
@@ -79,13 +85,16 @@
       <!-- links -->
       <ul class="sidebar-links">
         <li>
-          <a href="index.html" class="sidebar-link">
+          <h3>
+            <center> <?php echo $user_data["username"]; ?></center>
+          </h3>
+          <a href="index.php" class="sidebar-link">
             <i class="fas fa-home fa-fw"></i>
             home
           </a>
         </li>
         <li>
-          <a href="products.html" class="sidebar-link">
+          <a href="products.php" class="sidebar-link">
             <i class="fas fa-couch fa-fw"></i>
             products
           </a>
@@ -97,23 +106,15 @@
           </a>
         </li>
         <li>
-          <a href="login.html" class="sidebar-link">
-            <i class="fas fa-sign-in-alt"></i>
-            Login
-          </a>
-        </li>
-        <li>
-          <a href="register.html" class="sidebar-link">
-            <i class="fab fa-wpforms"></i>
-            Register
+          <a href="./logout.php" class="sidebar-link">
+            <i class="fas fa-sign-out-alt"></i>
+            logout
           </a>
         </li>
       </ul>
     </aside>
   </div>
-  <!-- sidebar end -->
-
-  <!-- cart start -->
+  <!-- cart -->
   <div class="cart-overlay">
     <aside class="cart">
       <button class="cart-close">
@@ -123,48 +124,47 @@
         <h3 class="text-slanted">your bag</h3>
       </header>
       <!-- cart items -->
-      <div class="cart-items">
-        <!-- products will redender here when user select products -->
-      </div>
+      <div class="cart-items"></div>
       <!-- footer -->
       <footer>
         <h3 class="cart-total text-slanted">
-          total : 120.25 Birr
+          total : $12.99
         </h3>
         <button class="cart-checkout btn">checkout</button>
       </footer>
     </aside>
   </div>
-  <!-- cart end -->
-
-  <!-- product info -->
-  <section class="single-product">
-    <div class="section-center single-product-center">
-      <img src="./images/main-bcg.jpeg" class="single-product-img img" alt="" />
-      <article class="single-product-info">
-        <div>
-          <h2 class="single-product-title">couch</h2>
-          <p class="single-product-company text-slanted">
-            by marcos
-          </p>
-          <p class="single-product-price">$30.00</p>
-          <div class="single-product-colors"></div>
-          <p class="single-product-desc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id,
-            modi? Minima libero doloremque necessitatibus! Praesentium
-            recusandae quod nesciunt animi voluptatem!
-          </p>
-          <button class="addToCartBtn btn" data-id="id">
-            add to cart
-          </button>
-        </div>
-      </article>
+  <!-- products -->
+  <section class="products">
+    <!-- filters -->
+    <div class="filters">
+      <div class="filters-container">
+        <!-- search -->
+        <form class="input-form">
+          <input type="text" class="search-input" placeholder="search..." />
+        </form>
+        <!-- categories -->
+        <h4>Company</h4>
+        <article class="companies">
+          <button class="company-btn">all</button>
+          <button class="company-btn">ikea</button>
+        </article>
+        <!-- price -->
+        <h4>Price</h4>
+        <form class="price-form">
+          <input type="range" class="price-filter" min="0" value="" max="" />
+        </form>
+        <p class="price-value"></p>
+      </div>
     </div>
+    <!-- products -->
+    <div class="products-container"></div>
   </section>
+  <!-- page loading -->
   <div class="page-loading">
-    <h2>loading...</h2>
+    <h2>Loading...</h2>
   </div>
-  <script type="module" src="./src/pages/product.js"></script>
+  <script type="module" src="./public/src/pages/products.js"></script>
 </body>
 
 </html>
